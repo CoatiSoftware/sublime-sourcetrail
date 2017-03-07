@@ -1,0 +1,10 @@
+[
+    {
+        "caption": "CoatiPlugin: Set active Token",
+        "command": "set_active_token"
+    }//,
+    //{
+    //    "caption": "CodeMap: Reveal in CodeMap",
+    //    "command": "synch_code_map"
+    //}
+]
