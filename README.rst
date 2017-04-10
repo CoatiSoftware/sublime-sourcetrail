@@ -1,10 +1,11 @@
 #############
-sublime-coati
+sublime-sourcetrail
 #############
 
-sublime-coati is a plugin for Sublime to communicate with Coati_.
+sublime-sourcetrail is a plugin for Sublime to communicate with SourceTrail_.
 
-.. _Coati : https://coati.io
+
+.. _SourceTrail : https://sourcetrail.com
 
 
 How to Install:
@@ -22,11 +23,11 @@ via Package Controll
 Use
 ===
 
-.. image:: sublime-coati.png
+.. image:: sublime-sourcetrail.png
 
-If you want Sublime to activate a certain element in Coati, click a location to place the cursor,
-right-click to bring up the context menu and choose the “Coati - Set active Token” option.
-Please note that the position of the cursor will be sent to Coati and not the position you opened the context menu at.
+If you want Sublime to activate a certain element in SourceTrail, click a location to place the cursor,
+right-click to bring up the context menu and choose the “SourceTrail - Set active Token” option.
+Please note that the position of the cursor will be sent to SourceTrail and not the position you opened the context menu at.
 
 License
 =======

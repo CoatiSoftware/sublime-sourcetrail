@@ -1,6 +1,6 @@
 [
     {
-        "caption": "CoatiPlugin: Set active Token",
+        "caption": "SourceTrailPlugin: Set active Token",
         "command": "set_active_token"
     }//,
     //{

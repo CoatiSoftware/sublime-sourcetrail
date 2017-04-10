@@ -13,7 +13,7 @@ except ImportError:			# use this for Sublime Text 3
 MESSAGE_SPLIT_STRING = ">>"
 
 
-# Handling Coati to Sublime communication
+# Handling SourceTrail to Sublime communication
 
 def setCursorPosition(filePath, row, col):
     if (os.path.exists(filePath)):
@@ -21,16 +21,16 @@ def setCursorPosition(filePath, row, col):
                                           ":" + str(col), sublime.ENCODED_POSITION)
     else:
         sublime.error_message(
-            "Coati is trying to jump to a file that does not exist: " + filePath)
+            "SourceTrail is trying to jump to a file that does not exist: " + filePath)
 
 
 def sendPing():
-    settings = sublime.load_settings('CoatiPlugin.sublime-settings')
+    settings = sublime.load_settings('SourceTrailPlugin.sublime-settings')
     host_ip = settings.get('host_ip')
-    plugin_to_coati_port = settings.get('sublime_to_coati_port')
+    plugin_to_sourcetrail_port = settings.get('sublime_to_sourcetrail_port')
 
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    s.connect((host_ip, plugin_to_coati_port))
+    s.connect((host_ip, plugin_to_sourcetrail_port))
     message = "ping>>SublimeText<EOM>"
     s.send(message.encode())
     s.close()
@@ -75,17 +75,17 @@ class ServerStartupListener(sublime_plugin.EventListener):
         if (not self.running):
             self.running = True
 
-            settings = sublime.load_settings('CoatiPlugin.sublime-settings')
+            settings = sublime.load_settings('SourceTrailPlugin.sublime-settings')
             host_ip = settings.get('host_ip')
-            coati_to_plugin_port = settings.get('coati_to_sublime_port')
+            sourcetrail_to_plugin_port = settings.get('sourcetrail_to_sublime_port')
 
             networkListener = ServerThreadHandler(
-                host_ip, coati_to_plugin_port)
+                host_ip, sourcetrail_to_plugin_port)
             networkListener.start()
             sendPing()
 
 
-# Handling Sublime to Coati communication
+# Handling Sublime to SourceTrail communication
 
 class SetActiveTokenCommand(sublime_plugin.TextCommand):
 
@@ -102,11 +102,11 @@ class SetActiveTokenCommand(sublime_plugin.TextCommand):
             str(row) + MESSAGE_SPLIT_STRING + str(col) + "<EOM>"
         data = text.encode()
 
-        settings = sublime.load_settings('CoatiPlugin.sublime-settings')
+        settings = sublime.load_settings('SourceTrailPlugin.sublime-settings')
         host_ip = settings.get('host_ip')
-        plugin_to_coati_port = settings.get('sublime_to_coati_port')
+        plugin_to_sourcetrail_port = settings.get('sublime_to_sourcetrail_port')
 
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        s.connect((host_ip, plugin_to_coati_port))
+        s.connect((host_ip, plugin_to_sourcetrail_port))
         s.send(data)
         s.close()
