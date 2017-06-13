@@ -1,4 +1,4 @@
 [
     { "caption": "-", "id": "sourcetrail" },
-    { "command": "set_active_token", "caption": "SourceTrail - Set active Token" }
+    { "command": "set_active_token", "caption": "Sourcetrail - Set active Token" }
 ]

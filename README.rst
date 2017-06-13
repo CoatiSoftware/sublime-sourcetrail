@@ -2,10 +2,10 @@
 sublime-sourcetrail
 #############
 
-sublime-sourcetrail is a plugin for Sublime to communicate with SourceTrail_.
+sublime-sourcetrail is a plugin for Sublime to communicate with Sourcetrail_.
 
 
-.. _SourceTrail : https://sourcetrail.com
+.. _Sourcetrail : https://sourcetrail.com
 
 
 How to Install:
@@ -25,9 +25,9 @@ Use
 
 .. image:: sublime-sourcetrail.png
 
-If you want Sublime to activate a certain element in SourceTrail, click a location to place the cursor,
-right-click to bring up the context menu and choose the “SourceTrail - Set active Token” option.
-Please note that the position of the cursor will be sent to SourceTrail and not the position you opened the context menu at.
+If you want Sublime to activate a certain element in Sourcetrail, click a location to place the cursor,
+right-click to bring up the context menu and choose the “Sourcetrail - Set active Token” option.
+Please note that the position of the cursor will be sent to Sourcetrail and not the position you opened the context menu at.
 
 License
 =======

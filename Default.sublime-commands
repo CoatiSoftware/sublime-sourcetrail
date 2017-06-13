@@ -1,6 +1,6 @@
 [
     {
-        "caption": "SourceTrailPlugin: Set active Token",
+        "caption": "Sourcetrail: Set active Token",
         "command": "set_active_token"
     }//,
     //{

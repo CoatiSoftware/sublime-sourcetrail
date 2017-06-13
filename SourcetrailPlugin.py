@@ -13,7 +13,7 @@ except ImportError:			# use this for Sublime Text 3
 MESSAGE_SPLIT_STRING = ">>"
 
 
-# Handling SourceTrail to Sublime communication
+# Handling Sourcetrail to Sublime communication
 
 def setCursorPosition(filePath, row, col):
     if (os.path.exists(filePath)):
@@ -21,11 +21,11 @@ def setCursorPosition(filePath, row, col):
                                           ":" + str(col), sublime.ENCODED_POSITION)
     else:
         sublime.error_message(
-            "SourceTrail is trying to jump to a file that does not exist: " + filePath)
+            "Sourcetrail is trying to jump to a file that does not exist: " + filePath)
 
 
 def sendPing():
-    settings = sublime.load_settings('SourceTrailPlugin.sublime-settings')
+    settings = sublime.load_settings('Sourcetrail.sublime-settings')
     host_ip = settings.get('host_ip')
     plugin_to_sourcetrail_port = settings.get('sublime_to_sourcetrail_port')
 
@@ -75,7 +75,7 @@ class ServerStartupListener(sublime_plugin.EventListener):
         if (not self.running):
             self.running = True
 
-            settings = sublime.load_settings('SourceTrailPlugin.sublime-settings')
+            settings = sublime.load_settings('Sourcetrail.sublime-settings')
             host_ip = settings.get('host_ip')
             sourcetrail_to_plugin_port = settings.get('sourcetrail_to_sublime_port')
 
@@ -85,7 +85,7 @@ class ServerStartupListener(sublime_plugin.EventListener):
             sendPing()
 
 
-# Handling Sublime to SourceTrail communication
+# Handling Sublime to Sourcetrail communication
 
 class SetActiveTokenCommand(sublime_plugin.TextCommand):
 
@@ -102,7 +102,7 @@ class SetActiveTokenCommand(sublime_plugin.TextCommand):
             str(row) + MESSAGE_SPLIT_STRING + str(col) + "<EOM>"
         data = text.encode()
 
-        settings = sublime.load_settings('SourceTrailPlugin.sublime-settings')
+        settings = sublime.load_settings('Sourcetrail.sublime-settings')
         host_ip = settings.get('host_ip')
         plugin_to_sourcetrail_port = settings.get('sublime_to_sourcetrail_port')
 
